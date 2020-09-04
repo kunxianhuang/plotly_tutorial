@@ -1,0 +1,7 @@
+numpy
+pandas
+json
+plotly==4.7.0
+dash==1.15.0
+jupyter_dash
+cufflinks==0.16
