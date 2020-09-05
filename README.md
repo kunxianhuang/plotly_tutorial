@@ -22,4 +22,7 @@ Exercise of Dash:
 https://github.com/kunxianhuang/plotly_tutorial/blob/master/Dash/Dash_exercise_basketball_player_stat.ipynb  
 
 ## Licence
-[CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)  
+License of this tutorial notebook is [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)  
+## Data Licence
+* [Basketball Players Stats per Season - 49 Leagues](https://www.kaggle.com/jacobbaruch/basketball-players-stats-per-season-49-leagues)  
+License by [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW) 
