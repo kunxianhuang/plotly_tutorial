@@ -16,9 +16,10 @@ Basic plotly:
 https://github.com/kunxianhuang/plotly_tutorial/blob/master/Plotly_introduction--Basketball_stat.ipynb  
 Exercise of titanic dataset:  
 https://github.com/kunxianhuang/plotly_tutorial/blob/master/Exercise_Titanic_dataset.ipynb  
-3D scatter plot and animation of SuperKamoikande open data:
-https://github.com/kunxianhuang/plotly_tutorial/blob/master/SuperK_Data_Display.ipynb
-Exercise of Dash:
-https://github.com/kunxianhuang/plotly_tutorial/blob/master/Dash/Dash_exercise_basketball_player_stat.ipynb
+3D scatter plot and animation of SuperKamoikande open data:  
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/SuperK_Data_Display.ipynb  
+Exercise of Dash:  
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/Dash/Dash_exercise_basketball_player_stat.ipynb  
 
-## 
+## Licence
+[CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)  
