@@ -11,3 +11,14 @@ This tutorial target on the data analyst, scientist, or science students, who wa
 
 The participant need basic knowledge of data graphing and html, and some basic Python. After this tutorial, participants can improve their presentations by interactive plots.
 
+## Notebooks  
+Basic plotly:  
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/Plotly_introduction--Basketball_stat.ipynb  
+Exercise of titanic dataset:  
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/Exercise_Titanic_dataset.ipynb  
+3D scatter plot and animation of SuperKamoikande open data:
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/SuperK_Data_Display.ipynb
+Exercise of Dash:
+https://github.com/kunxianhuang/plotly_tutorial/blob/master/Dash/Dash_exercise_basketball_player_stat.ipynb
+
+## 
