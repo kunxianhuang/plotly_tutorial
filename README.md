@@ -1,4 +1,4 @@
-# plotly_tutorial
+# Plotly/Dash tutorial
 Plotly/Dash tutorial at PyCon TW 2020  
 Slide of the tutorial  
 https://docs.google.com/presentation/d/1QBCLbgaJKH27CqP-6NlwrnCjGk1J3YuLk4GOvOe8lpI/edit?usp=sharing  
