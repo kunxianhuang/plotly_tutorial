@@ -26,3 +26,10 @@ License of this tutorial notebook is [CC BY-NC-SA](https://creativecommons.org/l
 ## Data Licence
 * [Basketball Players Stats per Season - 49 Leagues](https://www.kaggle.com/jacobbaruch/basketball-players-stats-per-season-49-leagues)  
 License by [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW) 
+* [Titanic: Machine Learning from Disaster](https://www.kaggle.com/c/titanic/overview)  
+* [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
+This data set is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) by the Johns Hopkins University on behalf of its Center for Systems Science in Engineering. Copyright Johns Hopkins University 2020.  
+
+## Requirements
+You should have installed the following python pacakges to run this tutorial: plotly, dash, jupyter_dash, Pandas, numpy, cufflinks, json.  
+If not, you can install them with `pip3 install -r requirements.txt`
