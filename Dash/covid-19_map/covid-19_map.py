@@ -44,7 +44,7 @@ def agg_merge(df_data,df_code):
     df_tot = pd.merge(df_tot,df_code,left_on="country",right_on="name",how='left').drop(code_columns,axis=1)
     return df_tot
 
-
+# country code of iso 3166 aplha-3
 df_country_code = pd.read_csv('data/country_code.csv')
 
 
@@ -53,23 +53,23 @@ code_columns.remove("alpha-3")
 
 
 
-
+# data from CSSE at Johns Hopkins University
 df_confirm = pd.read_csv('data/time_series_covid19_confirmed_global.csv')
 
 df_confirm = renameTHMK(df_confirm)
 
 dates = df_confirm.columns.to_list()[4:] # retrieve dates
 
+# confirmed covid-19 person by country
 df_confirm_country = agg_merge(df_confirm,df_country_code)
 
 
-
+# data from CSSE at Johns Hopkins University
 df_death   = pd.read_csv('data/time_series_covid19_deaths_global.csv')
 
 df_death = renameTHMK(df_death)
 
-
-
+# covid-19 death person by country
 df_death_country = agg_merge(df_death,df_country_code)
 
 
@@ -80,21 +80,23 @@ app.layout = html.Div([
     html.H1("Covid-19 global map", style={'textAlign': 'center'}),
 
     html.Div([
+        # radio to switch confirmed and death
         dcc.RadioItems(
             id='confirm-death-type',
             options=[{'label': i, 'value': i} for i in ['confirmed', 'death']],
             value='confirmed',
             labelStyle={'display': 'inline-block'}
         ),
+        # graph of global map
         dcc.Graph(
             id='worldmap-covid-19',
             # set initial setting of  customdata content
-            clickData={'points': [{'customdata': 'Taiwan'}]}
+            clickData={'points': [{'customdata': 'Taiwan'}]} # initial clickData
         )
     ], style={'width': '90%', 'display': 'inline-block', 'padding': '0 20', 'height':'900'}),
     html.Div([
-        dcc.Graph(id='confirm-time-series'),
-        dcc.Graph(id='death-time-series'),
+        dcc.Graph(id='confirm-time-series'), # time-series plot of confirmed
+        dcc.Graph(id='death-time-series'), # time-series plot of death
     ], style={'display': 'inline-block', 'width': '70%'}),
 
 ], style={
@@ -132,6 +134,7 @@ def update_map(value):
             showcoastlines=False,
             projection_type='equirectangular'
         ),
+        # annotations text in graph
         annotations = [dict(
             x=0.55,
             y=0.1,
