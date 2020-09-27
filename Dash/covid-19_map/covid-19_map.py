@@ -44,7 +44,18 @@ def agg_merge(df_data,df_code):
     df_tot = pd.merge(df_tot,df_code,left_on="country",right_on="name",how='left').drop(code_columns,axis=1)
     return df_tot
 
-# country code of iso 3166 aplha-3
+def rename_agg_us(df_data):
+    # rename column Country/Region and Province/State
+    df_data.rename(columns={"Country_Region": "country", "Province_State": "state"},inplace=True)
+
+    # sum up pepple number in US
+    df_tot = df_data.groupby(["country"]).sum().reset_index()
+
+    df_tot["alpha-3"] = "USA"
+
+    return df_tot
+
+# country code of iso 3166 alpha-3
 df_country_code = pd.read_csv('data/country_code.csv')
 
 
@@ -63,6 +74,13 @@ dates = df_confirm.columns.to_list()[4:] # retrieve dates
 # confirmed covid-19 person by country
 df_confirm_country = agg_merge(df_confirm,df_country_code)
 
+# data from CSSE at Johns Hopkins University
+df_US_confirm = pd.read_csv('data/time_series_covid19_confirmed_US.csv')
+
+# rename some columns and sum up all county
+df_US_confirm = rename_agg_us(df_US_confirm)
+
+df_confirm_country = pd.concat([df_confirm_country,df_US_confirm], ignore_index=True)
 
 # data from CSSE at Johns Hopkins University
 df_death   = pd.read_csv('data/time_series_covid19_deaths_global.csv')
@@ -71,6 +89,14 @@ df_death = renameTHMK(df_death)
 
 # covid-19 death person by country
 df_death_country = agg_merge(df_death,df_country_code)
+
+# data from CSSE at Johns Hopkins University
+df_US_death = pd.read_csv('data/time_series_covid19_deaths_US.csv')
+
+# rename some columns and sum up all county
+df_US_death = rename_agg_us(df_US_death)
+
+df_death_country = pd.concat([df_death_country,df_US_death], ignore_index=True)
 
 
 df_data = {"confirmed":df_confirm_country,"death":df_death_country}
@@ -169,7 +195,9 @@ def update_confirm_timeseries(clickData):
     country_name = clickData['points'][0]['customdata']
     dff = df_data['confirmed']
     dff = dff[dff['country'] == country_name]
-    id_vars = ["country","Lat", "Long","alpha-3"]
+    dff_allcolumns = dff.columns.tolist()
+    id_vars = [var for var in dff_allcolumns if var not in dates]
+
     dff = dff.melt(id_vars=id_vars,
              value_vars=dates,
              var_name="date",
@@ -187,12 +215,14 @@ def update_confirm_timeseries(clickData):
 @app.callback(
     Output('death-time-series', 'figure'),
     [Input('worldmap-covid-19', 'clickData')])
-def update_confirm_timeseries(clickData):
+def update_death_timeseries(clickData):
     # retrieve the customdata ("country") of the clicked point
     country_name = clickData['points'][0]['customdata']
     dff = df_data['death']
     dff = dff[dff['country'] == country_name]
-    id_vars = ["country","Lat", "Long","alpha-3"]
+    dff_allcolumns = dff.columns.tolist()
+    id_vars = [var for var in dff_allcolumns if var not in dates]
+    #id_vars = ["country","Lat", "Long","alpha-3"]
     dff = dff.melt(id_vars=id_vars,
              value_vars=dates,
              var_name="date",
