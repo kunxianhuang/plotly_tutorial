@@ -1,7 +1,7 @@
 numpy
 pandas
-plotly==4.7.0
-dash==1.15.0
+plotly
+dash
 jupyter_dash
-cufflinks==0.16
+cufflinks
 jupyter
